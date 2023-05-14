@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <main>
       <h1>Home aplicacion ejemplo query Cities</h1>
-
+      
       {data?.cities.map(({ id, name }) => (
         <ol key={id}>
           <li>{name}</li>

@@ -8,3 +8,12 @@ export const GET_CITIES = gql`
     }
   }
 `;
+
+export const GET_COUNTRIES = gql`
+query Countries {
+  countries {
+    id
+    name
+  }
+}
+`;
