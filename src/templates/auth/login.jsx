@@ -3,6 +3,7 @@ import { TextField, Button } from '@material-ui/core';
 import {LOGIN} from './../../graphql/mutations/auth';
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+import validator from "validator";
 
 const Login = () => {
   
@@ -11,13 +12,18 @@ const Login = () => {
   const [loginError, setLoginError] = useState(null);
   const [login, { data, loading, error }] = useMutation(LOGIN);
   const navigate = useNavigate();
+
   const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+    const email = event.target.value;
+    setEmail(email);
   };
 
   const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+    const password = event.target.value;
+    setPassword(password);
   };
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,11 +47,13 @@ const Login = () => {
   
   return (
     <div>
-    <form onSubmit={handleSubmit}>
+    <form autoComplete="off" onSubmit={handleSubmit}>
       <TextField
         label="Email"
         variant="outlined"
+        color="secondary"
         margin="normal"
+        sx={{mb: 3}}
         value={email}
         onChange={handleEmailChange}
       />
@@ -54,9 +62,12 @@ const Login = () => {
         type="password"
         variant="outlined"
         margin="normal"
+        color="secondary"
+        sx={{mb: 3}}
         value={password}
         onChange={handlePasswordChange}
       />
+
       {loginError && <h1> {loginError}</h1>}
       <Button variant="contained" color="primary" type="submit">
         Login
