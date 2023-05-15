@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
-import {LOGIN} from './../../graphql/mutations/auth';
+import {LOGIN} from './../../graphql/auth/mutations/auth';
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
