@@ -32,7 +32,7 @@ const Login = () => {
     else{
       localStorage.setItem('auth-token',response.data.login.accessToken);
       console.log(localStorage.getItem('auth-token'));
-      navigate("/");
+      navigate("/home");
       
     }
   

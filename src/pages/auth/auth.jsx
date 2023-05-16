@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField } from '@material-ui/core';
 import Login from '../../templates/auth/login';
 import Register from '../../templates/auth/register';
+
 import './auth.css'
 
 const useStyles = makeStyles({
@@ -48,9 +49,9 @@ const Auth = () => {
 
           <h1> Eres un Administrador? </h1>
           {isLogin ? (
-           <Login flagVenue={false} />
+           <Login/>
           ) : (
-          <Register flagVenue={true}/>
+          <Register/>
           )}
           <p>
           {isLogin ? "Todavía no tienes una cuenta?" : 'Ya tienes una cuenta?'}

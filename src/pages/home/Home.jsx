@@ -1,9 +1,10 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { GET_CITIES } from "../../graphql/auth/queries/cities";
+
+
 
 const Home = () => {
-  const { loading, error, data } = useQuery(GET_CITIES);
+  
   console.log('data :>> ', data);
   if (loading) return <p>Loading...</p>;
 
@@ -11,7 +12,7 @@ const Home = () => {
 
   return (
     <main>
-      
+      {BottomNavigation}
     </main>
   );
 };
