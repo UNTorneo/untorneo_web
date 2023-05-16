@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const addMatch = gql`
+export const ADD_MATCH = gql`
   mutation Mutation($match: AddMatch!) {
     addMatch(match: $match) {
       ... on SucessResponse {
@@ -12,7 +12,7 @@ export const addMatch = gql`
     }
   }`;
 
-export const deleteMatch = gql`
+export const DELETE_MATCH = gql`
   mutation Mutation($updateMatchId: String!, $match: UpdateMatch!) {
     updateMatch(id: $updateMatchId, match: $match) {
       ... on SucessResponse {
@@ -24,7 +24,7 @@ export const deleteMatch = gql`
     }
   }`;
 
-export const updateMatch = gql`
+export const UPDATE_MATCH = gql`
   mutation Mutation($updateMatchId: String!, $match: UpdateMatch!) {
     updateMatch(id: $updateMatchId, match: $match) {
       ... on SucessResponse {
@@ -36,7 +36,7 @@ export const updateMatch = gql`
     }
   }`;
 
-export const startMatch = gql`
+export const START_MATCH = gql`
   mutation Mutation($startMatchId: String!) {
     startMatch(id: $startMatchId) {
       ... on SucessResponse {
@@ -48,7 +48,7 @@ export const startMatch = gql`
     }
   }`;
 
-export const endMatch = gql`
+export const END_MATCH = gql`
   mutation Mutation($endMatchId: String!) {
     endMatch(id: $endMatchId) {
       ... on SucessResponse {
