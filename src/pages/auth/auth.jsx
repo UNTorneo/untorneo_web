@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField } from '@material-ui/core';
 import Login from '../../templates/auth/login';
 import Register from '../../templates/auth/register';
+import './auth.css'
 
 const useStyles = makeStyles({
     container: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
     },
     button: {
       margin: '10px',
-    },
+    }
   });
 
 
@@ -35,40 +36,49 @@ const Auth = () => {
     const classes = useStyles();
     const [isLogin, setIsLogin] = useState(true);
 
-    const handleLogin = (event) => {
-        event.preventDefault();
-        console.log('Logging in', email, password);
-        setIsLogin(true);
-      }
     
-      const handleRegister = (event) => {
-        event.preventDefault();
-        console.log('Registering', email, password);
-        setIsLogin(false);
-      };
     
   
-    return (<div className={classes.container}>
+    return (
+    <div className={classes.container}>
     
-      <h2>{isLogin ? 'Login' : 'Register'}</h2>
+      <h2>{isLogin ? 'Iniciar sesión' : 'Registrarse'}</h2>
       
-      {isLogin ? (
-         <Login />
-      ) : (
-        <Register/>
-      )}
-      <p>
-        {isLogin ? "Don't have an account yet?" : 'Already have an account?'}
-        <Button
+      <div className="split-page">
+        <div className="left-container">
+          <h1> Eres un Administrador? </h1>
+          {isLogin ? (
+           <Login />
+          ) : (
+          <Register/>
+          )}
+          <p>
+          {isLogin ? "Todavía no tienes una cuenta?" : 'Ya tienes una cuenta?'}
+          <Button
           color="primary"
           onClick={() => setIsLogin((prevState) => !prevState)}
-        >
-          {isLogin ? 'Register here' : 'Login here'}
-        </Button>
-      </p>
+          >
+          {isLogin ? 'Registrate acá' : 'Inicia sesión acá'}
+          </Button>
+          </p>
+        </div>
+        <div className="right-container">
+          <h1 style={{ textAlign: 'center' }}>Quieres ofrecer tu sede?</h1>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <Button variant="contained" color="primary">
+              Añadir nueva sede
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      
     
-  </div>
-);
+    </div>
+  );
 };
   
   export default Auth;
+
+
+  

@@ -107,37 +107,37 @@ const Register = () => {
   return (
     <div>
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
+      <div style={{ marginTop: '10px' }}>
+        <label htmlFor="name">Nombre:</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
       </div>
-      <div>
-        <label htmlFor="username">Username:</label>
+      <div style={{ marginTop: '10px' }}>
+        <label htmlFor="username">Nombre de usuario:</label>
         <input type="text" id="username" value={username} onChange={handleUsernameChange} />
       </div>
-      <div>
+      <div style={{ marginTop: '10px' }}>
         <label htmlFor="email">Email:</label>
         <input type="email" id="email" value={email} onChange={handleEmailChange} />
-        {!isValidEmail && <span>Please enter a valid email address</span>}
+        {!isValidEmail && <span>Por favor ingrese un Email valido.</span>}
       </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" value={password} onChange={handlePasswordChange} />
-        {!isValidPassword && <span>Password must be at least 8 characters long</span>}
+      <div style={{ marginTop: '10px' }}>
+        <label htmlFor="password">Contraseña:</label>
+        <input type="password" id="Contraseña" value={password} onChange={handlePasswordChange} />
+        {!isValidPassword && <span>La contraseña debe tener al menos 8 caracteres</span>}
       </div>
-      <div>
-        <label htmlFor="confirm-password">Confirm Password:</label>
+      <div style={{ marginTop: '10px' }}>
+        <label htmlFor="confirm-password">Confirmar contraseña:</label>
         <input type="password" id="confirm-password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
-        {!isValidConfirmPassword && <span>Passwords do not match</span>}
+        {!isValidConfirmPassword && <span>Las contraseñas no coinciden</span>}
       </div>
-      <div>
-        <label htmlFor="date">Date:</label>
+      <div style={{ marginTop: '10px' }}>
+        <label htmlFor="date">Fecha de nacimiento:</label>
         <LocalizationProvider dateAdapter={AdapterDayjs} >
             <DatePicker value={selectedDate} onChange={handleDateChange } />
         </LocalizationProvider>
       </div>
-    <div>
-    <label htmlFor="city">City:</label>
+    <div style={{ marginTop: '10px' }}>
+    <label htmlFor="city">Ciudad:</label>
     <select value={selectedCity} onChange={handleCityChange} id="city">
         {citiesData?.cities.map((option) => (
             <option key={option.id} value={option.id}>
@@ -146,8 +146,8 @@ const Register = () => {
         ))}
         </select>
     </div>
-    <div>
-    <label htmlFor="country">Country:</label>
+    <div style={{ marginTop: '10px' }}>
+    <label htmlFor="country">País:</label>
     <select value={selectedCountry} onChange={handleCountryChange} id="country">
         {countriesData?.countries.map((option) => (
             <option key={option.id} value={option.id}>
@@ -157,7 +157,7 @@ const Register = () => {
         </select>
     </div>
     {registerError && <h1> {registerError}</h1>}
-      <button type="submit">Register</button>
+      <button type="submit" style={{ marginTop: '10px' }}>Registrarse</button>
     </form>
     </div>
   );

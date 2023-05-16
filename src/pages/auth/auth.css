@@ -1,0 +1,19 @@
+.split-page {
+    display: flex;
+    height: 100vh; /* Adjust as needed */
+  }
+  
+  .left-container, .right-container {
+    flex: 1;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if content exceeds container height */
+  }
+  
+  .left-container {
+    background-color: #f1f1f1; /* Example background color for the left side */
+  }
+  
+  .right-container {
+    background-color: #ffffff; /* Example background color for the right side */
+  }
+  
