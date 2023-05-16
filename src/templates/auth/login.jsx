@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import validator from "validator";
 
 const Login = () => {
-  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState(null);
@@ -34,6 +33,7 @@ const Login = () => {
       localStorage.setItem('auth-token',response.data.login.accessToken);
       console.log(localStorage.getItem('auth-token'));
       navigate("/");
+      
     }
   
       

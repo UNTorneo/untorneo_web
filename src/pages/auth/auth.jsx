@@ -44,13 +44,13 @@ const Auth = () => {
     
       <h2>{isLogin ? 'Iniciar sesión' : 'Registrarse'}</h2>
       
-      <div className="split-page">
-        <div className="left-container">
+
+
           <h1> Eres un Administrador? </h1>
           {isLogin ? (
-           <Login />
+           <Login flagVenue={false} />
           ) : (
-          <Register/>
+          <Register flagVenue={true}/>
           )}
           <p>
           {isLogin ? "Todavía no tienes una cuenta?" : 'Ya tienes una cuenta?'}
@@ -61,16 +61,7 @@ const Auth = () => {
           {isLogin ? 'Registrate acá' : 'Inicia sesión acá'}
           </Button>
           </p>
-        </div>
-        <div className="right-container">
-          <h1 style={{ textAlign: 'center' }}>Quieres ofrecer tu sede?</h1>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <Button variant="contained" color="primary">
-              Añadir nueva sede
-            </Button>
-          </div>
-        </div>
-      </div>
+
 
       
     

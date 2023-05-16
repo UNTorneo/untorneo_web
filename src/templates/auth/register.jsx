@@ -21,7 +21,6 @@ const changeDateFormat = (d)=>{
 
 const Register = () => {
 
-
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
