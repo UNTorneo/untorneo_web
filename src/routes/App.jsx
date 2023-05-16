@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "../templates/home/home";
+import Home from "../pages/home/Home";
 import Auth from "../pages/auth/auth"
 const App = () => {
   return (

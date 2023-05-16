@@ -21,7 +21,7 @@ const Home = () => {
           content = <h1>TorneosContent </h1>;
           break;
         case 1:
-          content = <h1>{EquiposContent} </h1>;
+          content = <h1>EquiposContent</h1>;
           break;
         case 2:
           content = <h1>PartidosContent </h1>;
