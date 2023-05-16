@@ -24,11 +24,27 @@ export const GET_MATCHES = gql`
   }
 `;
 
-export const GET_COUNTRIES = gql`
-query Countries {
-  countries {
-    id
-    name
+export const GET_MATCH = gql`
+  query ExampleQuery($getMatchId: String!) {
+    getMatch(id: $getMatchId) {
+      id
+      tournamentId {
+        id
+        name
+      }
+      homeTeam {
+        id
+        name
+      }
+      visitingTeam {
+        id
+        name
+      }
+      homeTeamScore
+      visitingTeamScore
+      date
+      courtId
+      status
+    }
   }
-}
 `;
