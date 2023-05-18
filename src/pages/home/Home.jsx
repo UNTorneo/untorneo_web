@@ -7,7 +7,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import SportsMmaIcon from '@mui/icons-material/SportsMma';
 import EmojiTransportationOutlinedIcon from '@mui/icons-material/EmojiTransportationOutlined';
-
+import Tournament from './../../templates/tournament/tournaments';
 const Home = () => {
 
     const [value, setValue] = React.useState(0);
@@ -18,7 +18,8 @@ const Home = () => {
     let content;
     switch (value) {
         case 0:
-          content = <h1>TorneosContent </h1>;
+          content = 
+            <Tournament/>
           break;
         case 1:
           content = <h1>EquiposContent</h1>;
