@@ -22,6 +22,7 @@ const changeDateFormat = (d)=>{
 const Register = () => {
 
   const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +44,9 @@ const Register = () => {
   
   const handleNameChange = (event) => {
     setName(event.target.value);
+  };
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
   };
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -87,13 +91,15 @@ const Register = () => {
   const handleSubmit = async(event) => {
     event.preventDefault();
     const response = await register({ variables: { 
+        name: name,
+        lastName:lastName,
+        username: username,
         email: email,
         password:password,
-        name: name,
-        username: username,
         birthday: changeDateFormat(selectedDate),
         countryId: Number(selectedCountry),
         cityId: Number(selectedCity),
+        isActive: true,
         latitude: 0,
         longitude: 0
      } });
@@ -109,6 +115,10 @@ const Register = () => {
       <div style={{ marginTop: '10px' }}>
         <label htmlFor="name">Nombre:</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
+      </div>
+      <div style={{ marginTop: '10px' }}>
+        <label htmlFor="lastName">Apellidos:</label>
+        <input type="text" id="lastName" value={lastName} onChange={handleLastNameChange} />
       </div>
       <div style={{ marginTop: '10px' }}>
         <label htmlFor="username">Nombre de usuario:</label>

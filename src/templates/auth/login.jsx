@@ -30,8 +30,10 @@ const Login = () => {
     console.log(response.data.login);
     if(response.data.login.error) setLoginError(response.data.login.error);
     else{
-      localStorage.setItem('auth-token',response.data.login.accessToken);
-      console.log(localStorage.getItem('auth-token'));
+      localStorage.setItem('authToken',response.data.login.accessToken);
+      localStorage.setItem('userId',response.data.login.user.id);
+      console.log(localStorage.getItem('authToken'));
+      console.log(localStorage.getItem('userId'));
       navigate("/home");
       
     }

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useQuery } from "@apollo/client";
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import SportsMmaIcon from '@mui/icons-material/SportsMma';
 import EmojiTransportationOutlinedIcon from '@mui/icons-material/EmojiTransportationOutlined';
+import Teams from '../../templates/teams/teams';
 
 const Home = () => {
 
@@ -21,7 +22,7 @@ const Home = () => {
           content = <h1>TorneosContent </h1>;
           break;
         case 1:
-          content = <h1>EquiposContent</h1>;
+          content = <Teams/>;
           break;
         case 2:
           content = <h1>PartidosContent </h1>;
@@ -37,8 +38,11 @@ const Home = () => {
     
   return (
     <main>
-        {content}
-        <Box sx={{ width: '100%' }}>
+       <div>
+       {content}
+       </div>
+        
+      <Box sx={{ width: '100%' }}>
       <BottomNavigation
         showLabels
         value={value}
