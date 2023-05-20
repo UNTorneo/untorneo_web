@@ -20,7 +20,7 @@ const Home = () => {
     switch (value) {
         case 0:
           content = 
-            <Tournament/>
+            <Tournament/>;
           break;
         case 1:
           content = <Teams/>;

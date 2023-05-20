@@ -4,7 +4,6 @@ import validator from "validator";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { useNavigate } from "react-router-dom";
 import { GET_CITIES, GET_COUNTRIES } from "./../../graphql/auth/queries/cities";
 import {REGISTER} from './../../graphql/auth/mutations/auth';
 import { Select, MenuItem } from '@material-ui/core';
@@ -37,7 +36,6 @@ const Register = () => {
   const [register, { data, loading, error }] = useMutation(REGISTER);
   const { loading: citiesLoading, error:citiesError, data: citiesData } = useQuery(GET_CITIES);
   const { loading: countriesLoading, error: countriesError, data: countriesData } = useQuery(GET_COUNTRIES);
-  const navigate = useNavigate();
   if (citiesLoading || countriesLoading) return <p>Loading...</p>;
   if (citiesError || countriesError) return <p>Error : {error.message}</p>;
 
