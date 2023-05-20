@@ -44,7 +44,7 @@ const Home = () => {
        </div>
         
       <Box sx={{ width: '100%' }}>
-      <BottomNavigation
+      <BottomNavigation style={{ position: 'fixed', bottom: 0, left: 0,width: '100%', display:'flex','justify-content':'center'}}
         showLabels
         value={value}
         onChange={(event, newValue) => {
