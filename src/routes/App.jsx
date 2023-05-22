@@ -4,6 +4,7 @@ import Home from "../pages/home/Home";
 import Auth from "../pages/auth/auth"
 import TeamDescription from "../templates/teams/teamDescription";
 import Redirect from "../templates/auth/redirect";
+import TournamentDetails from '../templates/tournament/tournamentDetails';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/auth" element={<Auth />} /> 
         <Route path="/teams/:id" element={<TeamDescription/>}/>
+        <Route path="/tournament/:id" element={<TournamentDetails/>}/>
       </Routes>
     </BrowserRouter>
   );

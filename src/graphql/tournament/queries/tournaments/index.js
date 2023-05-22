@@ -11,7 +11,6 @@ export const GET_TOURNAMENTS = gql`
       }
       modeId {
         _id
-        sportId
         name
       }
       clanId {

@@ -11,7 +11,7 @@ const Teams = () => {
     const { loading: teamsLoading, error:teamsError, data: teamsData } = useQuery(GET_TEAMS);
     //const [getTeamById,{ loading: teamLoading, error:teamError, data: teamData }] = useQuery(GET_TEAM_BY_ID);
     if (teamsLoading) return <p>Loading...</p>;
-    if (teamsError) return <p>Error : {teamsError.message}</p>;
+    if (teamsError) return <p>Error in Teams : {teamsError.message}</p>;
     console.log(teamsData);
     
     const columns = [

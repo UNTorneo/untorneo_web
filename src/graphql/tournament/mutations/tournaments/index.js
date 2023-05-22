@@ -37,7 +37,7 @@ export const UPDATE_TOURNAMENT = gql`
   }`;
 
 export const START_TOURNAMENT = gql`
-  mutation Mutation($startTournamentId: String!) {
+  mutation StartTournament($startTournamentId: String!) {
     startTournament(id: $startTournamentId) {
       ... on SucessResponse {
         message
