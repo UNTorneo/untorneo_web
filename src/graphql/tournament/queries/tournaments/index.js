@@ -34,25 +34,34 @@ export const GET_TOURNAMENT = gql`
       id
       name
       teams {
-        clanId
+        id
         name
+        members
       }
       sportId {
         _id
         name
+        description
+        recommendation
       }
       modeId {
         _id
         name
+        name
+        winningPoints
+        teamsNumber
+        playersPerTeam
+        description
+        substitutePlayers
       }
       clanId {
         id
         name
       }
       venueId {
-        description
         id
         location
+        description
       }
       venueName
       access

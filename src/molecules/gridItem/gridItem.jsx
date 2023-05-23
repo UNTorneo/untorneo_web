@@ -6,20 +6,26 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import { useMutation } from "@apollo/client";
-import { START_TOURNAMENT } from './../../graphql/tournament/mutations/tournaments';
+import { START_TOURNAMENT, END_TOURNAMENT } from './../../graphql/tournament/mutations/tournaments';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import StopIcon from '@mui/icons-material/Stop';
 
 
 export default function TournamentGridItem({id, name, sport, mode, clan, venue, access, status}) {
-  const [startTournament, { data, loading, error }] = useMutation(START_TOURNAMENT);
+  const [startTournament, { startTournamentData, startTournamentLoading, startTournamentError }] = useMutation(START_TOURNAMENT);
+  const [endTournament, { endTournamentData, endTournamentLoading, endTournamentError }] = useMutation(END_TOURNAMENT);
   const navigate = useNavigate();
 
   const handleItemClick = () => { navigate(`/tournament/${id}`); };
   
   const handleStartClick = async (event) => {
-    event.preventDefault();
-    const response = await startTournament({variables: {startTournamentId: id}})
-    console.log("respones: " + response);
+    await startTournament({variables: {startTournamentId: id}})
+    window.location.reload() // Recarga la página
+  }
+
+  const handleEndClick = async (event) => {
+    await endTournament({variables: {endTournamentId: id}})
+    window.location.reload() // Recarga la página
   }
   
   const Item = styled(Paper)(({ theme }) => ({
@@ -37,7 +43,7 @@ export default function TournamentGridItem({id, name, sport, mode, clan, venue, 
     marginTop: '20px'
   }));
 
-  if (loading) return (
+  if (startTournamentLoading || endTournamentLoading) return (
     <Item>
       <span onClick={handleItemClick}>
         <EmojiEventsIcon></EmojiEventsIcon>
@@ -51,7 +57,7 @@ export default function TournamentGridItem({id, name, sport, mode, clan, venue, 
       </span>
       <p>Loading...</p>
     </Item>);
-  if (error) return (
+  if (startTournamentError || endTournamentError) return (
     <Item>
       <span onClick={handleItemClick}>
         <EmojiEventsIcon></EmojiEventsIcon>
@@ -83,6 +89,25 @@ export default function TournamentGridItem({id, name, sport, mode, clan, venue, 
         <StyledButton variant="contained" color="primary" startIcon={<PlayArrowIcon/>}
           onClick={handleStartClick}>
           Iniciar
+        </StyledButton>
+      </Item>
+    );
+    else if (status == 'in-progress')
+    return (
+      <Item>
+        <span onClick={handleItemClick}>
+          <EmojiEventsIcon></EmojiEventsIcon>
+          <h2>{name}</h2>
+          <p>Deporte: {sport}, {mode}</p>
+          <p>Lugar: {venue}</p>
+          <p>Clan: {clan}</p>
+          <p>Tipo de acceso: {access}</p>
+          <span style={{ padding: '10px' }}>Estado: {status}</span>
+          <br />
+        </span>
+        <StyledButton variant="contained" color="error" startIcon={<StopIcon/>}
+          onClick={handleEndClick}>
+          Finalizar
         </StyledButton>
       </Item>
     );

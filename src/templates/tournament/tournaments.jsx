@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { GET_TOURNAMENTS } from './../../graphql/tournament/queries/tournaments/index';
-import { useQuery } from '@apollo/client';
+import { ADD_TOURNAMENT } from './../../graphql/tournament/mutations/tournaments/index';
+import { useQuery, useMutation } from '@apollo/client';
+import { useNavigate } from "react-router-dom";
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -13,9 +15,10 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 const Tournament = () =>{
+    const navigate = useNavigate();
     const { loading: tournamentsLoading, error: tournamentsError, data: tournamentsData } = useQuery(GET_TOURNAMENTS);
     if (tournamentsLoading) return <p>Loading...</p>;
-    if (tournamentsError) return <p>Error in Tournaments : {tournamentsError.message}</p>;
+    if (tournamentsError) return <p>Error in Tournaments : {tournamentsError.message}</p>; 
     const venue = Array(tournamentsData.getTournaments.length);
     for (let i = 0; i < tournamentsData.getTournaments.length; i++) {
         if(tournamentsData.getTournaments[i].venueId == null){
@@ -31,11 +34,16 @@ const Tournament = () =>{
         }
     }
 
+    const handleCreateClick = () => {
+        navigate('/add-tournament');
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <h1>Torneos</h1>
             <Button variant="contained" color="success" startIcon={<AddIcon/>}
-            style={{marginBottom: '20px'}}>
+            style={{marginBottom: '20px'}}
+            onClick={handleCreateClick}>
               Crear torneo
             </Button>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>

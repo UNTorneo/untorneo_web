@@ -12,8 +12,10 @@ const TournamentDetails = () => {
     if (loading || joinLoading) return <p>Loading...</p>;
     if (error || joinError) return <p>Error : {error.message}</p>;
 
-    // return(
-        
-    // );
+    return(
+        <Grid container spacing={{xs:2, md:3}}>
+          
+        </Grid>
+    );
 }
 export default TournamentDetails
