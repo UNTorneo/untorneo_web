@@ -41,11 +41,11 @@ const Tournament = () =>{
     return (
         <Box sx={{ flexGrow: 1 }}>
             <h1>Torneos</h1>
-            <Button variant="contained" color="success" startIcon={<AddIcon/>}
+            {/* <Button variant="contained" color="success" startIcon={<AddIcon/>}
             style={{marginBottom: '20px'}}
             onClick={handleCreateClick}>
               Crear torneo
-            </Button>
+            </Button> */}
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {Array.from(Array(tournamentsData.getTournaments.length)).map((_, index) => (
                     <Grid item xs={2} sm={4} md={4} key={index}>
