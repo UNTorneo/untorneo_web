@@ -22,9 +22,9 @@ const TournamentDetails = () => {
     if (loading) 
     return (
         <div>
-            <IconButton aria-label="back" onClick={handleBackClick}>
+            {/* <IconButton aria-label="back" onClick={handleBackClick}>
                 <ArrowBackIosIcon />
-            </IconButton>
+            </IconButton> */}
             <p>Loading...</p>
         </div>
     );

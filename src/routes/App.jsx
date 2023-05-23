@@ -6,6 +6,8 @@ import TeamDescription from "../templates/teams/teamDescription";
 import Redirect from "../templates/auth/redirect";
 import TournamentDetails from '../templates/tournament/tournamentDetails';
 import DisplayMatch from "../templates/matches/displayMatch";
+import Otro from "../pages/venues/TableVenue";
+import Venue from "../pages/venues/Venue";
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,6 +18,7 @@ const App = () => {
         <Route path="/teams/:id" element={<TeamDescription/>}/>
         <Route path="/tournament/:id" element={<TournamentDetails/>}/>
         <Route path="/match/:id" element={<DisplayMatch/>}/>
+        <Route path="/sedes" element={<Venue/>} />
       </Routes>
     </BrowserRouter>
   );
