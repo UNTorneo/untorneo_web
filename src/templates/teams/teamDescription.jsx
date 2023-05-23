@@ -17,7 +17,7 @@ const TeamDescription = () => {
       });
     const [joinTeam, { data:joinData, loading:joinLoading, error: joinError }] = useMutation(JOIN_TO_TEAM);
     if (loading || joinLoading) return <p>Loading...</p>;
-    if (error || joinError) return <p>Error : {error.message}</p>;
+    if (error || joinError) return <p>Error : {error}</p>;
 
     const filteredData = data.getTeam.members.filter(row => row !== null);
 
@@ -35,7 +35,7 @@ const TeamDescription = () => {
         console.log('response',response);
         if(response.data.registerMember.error) setResponseError(response.data.registerMember.error);
         else setResponseError(response.data.registerMember.message);
-      
+        window.location.reload() // Recarga la página
     };
    
     console.log(data);
