@@ -69,7 +69,7 @@ export default function TournamentGridItem({id, name, sport, mode, clan, venue, 
         <span style={{ padding: '10px' }}>Estado: {status}</span>
         <br />
       </span>
-      <p>Error :{error.message}</p>
+      <p>Error :{startTournamentError.message || endTournamentError.message}</p>
     </Item>
   );
 

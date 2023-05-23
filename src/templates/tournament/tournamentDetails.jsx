@@ -18,7 +18,12 @@ const TournamentDetails = () => {
     const { loading, error, data } = useQuery(GET_TOURNAMENT, {
         variables: { getTournamentId: id },
     });
-  const [deleteTournament, { deleteTournamentData, deleteTournamentLoading, deleteTournamentError }] = useMutation(DELETE_TOURNAMENT);
+    const [deleteTournament, { deleteTournamentData, deleteTournamentLoading, deleteTournamentError }] = useMutation(DELETE_TOURNAMENT);
+
+    const handleBackClick = () => {
+        navigate('/home');
+    }
+
     if (loading) 
     return (
         <div>
@@ -59,10 +64,6 @@ const TournamentDetails = () => {
             <p>Error al eliminar el torneo : {deleteTournamentError.message}</p>
         </div>
     );
-
-    const handleBackClick = () => {
-        navigate('/home');
-    }
 
     const handleDeleteClick = async () => {
         await deleteTournament(id);
