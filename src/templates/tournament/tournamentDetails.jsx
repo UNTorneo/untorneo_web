@@ -24,6 +24,11 @@ const TournamentDetails = () => {
         navigate('/home');
     }
 
+    const handleDeleteClick = async () => {
+        await deleteTournament({variables: {deleteTournamentId: id}});
+        navigate('/home');
+    }
+
     if (loading) 
     return (
         <div>
@@ -64,11 +69,6 @@ const TournamentDetails = () => {
             <p>Error al eliminar el torneo : {deleteTournamentError.message}</p>
         </div>
     );
-
-    const handleDeleteClick = async () => {
-        await deleteTournament(id);
-        navigate('/home');
-    }
 
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
