@@ -30,7 +30,7 @@ const Teams = () => {
     return (
         
         <div style={{ height: 400, width: '100%' }}>
-          
+          <h1>Equipos disponibles</h1>
           <DataGrid
             rows={teamsData.getTeams}
             columns={columns}
