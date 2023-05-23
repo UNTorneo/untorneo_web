@@ -9,6 +9,7 @@ import SportsMmaIcon from '@mui/icons-material/SportsMma';
 import EmojiTransportationOutlinedIcon from '@mui/icons-material/EmojiTransportationOutlined';
 import Teams from '../../templates/teams/teams';
 import Tournament from './../../templates/tournament/tournaments';
+import Matches from '../../templates/matches/matches';
 const Home = () => {
 
     const [value, setValue] = React.useState(0);
@@ -26,7 +27,7 @@ const Home = () => {
           content = <Teams/>;
           break;
         case 2:
-          content = <h1>PartidosContent </h1>;
+          content = <Matches/>;
           break;
         case 3:
           content = <h1>SedesContent </h1>;
@@ -44,7 +45,7 @@ const Home = () => {
        </div>
         
       <Box sx={{ width: '100%' }}>
-      <BottomNavigation style={{ position: 'fixed', bottom: 0, left: 0,width: '100%', display:'flex','justify-content':'center'}}
+      <BottomNavigation style={{ position: 'fixed', bottom: 0, left: 0,width: '100%', display:'flex',justifyContent:'center'}}
         showLabels
         value={value}
         onChange={(event, newValue) => {

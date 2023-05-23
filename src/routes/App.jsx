@@ -5,7 +5,7 @@ import Auth from "../pages/auth/auth"
 import TeamDescription from "../templates/teams/teamDescription";
 import Redirect from "../templates/auth/redirect";
 import TournamentDetails from '../templates/tournament/tournamentDetails';
-
+import DisplayMatch from "../templates/matches/displayMatch";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +15,7 @@ const App = () => {
         <Route path="/auth" element={<Auth />} /> 
         <Route path="/teams/:id" element={<TeamDescription/>}/>
         <Route path="/tournament/:id" element={<TournamentDetails/>}/>
+        <Route path="/match/:id" element={<DisplayMatch/>}/>
       </Routes>
     </BrowserRouter>
   );
