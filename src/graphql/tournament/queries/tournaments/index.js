@@ -47,7 +47,6 @@ export const GET_TOURNAMENT = gql`
       modeId {
         _id
         name
-        name
         winningPoints
         teamsNumber
         playersPerTeam
