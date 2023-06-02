@@ -21,12 +21,24 @@ const Displaymatch = () => {
       });
 
     const handleStartClick = async (event) => {
-      await startMatch({variables: {startMatchId: id}})
+      const headers = {
+        'token': localStorage.getItem('authToken'),
+        'Content-Type': 'application/json',
+      };
+      await startMatch({variables: {startMatchId: id},context:{
+        headers: headers
+    }})
       window.location.reload() // Recarga la página
     }
   
     const handleEndClick = async (event) => {
-      await endMatch({variables: {endMatchId: id}})
+      const headers = {
+        'token': localStorage.getItem('authToken'),
+        'Content-Type': 'application/json',
+      };
+      await endMatch({variables: {endMatchId: id},context:{
+        headers: headers
+    }})
       window.location.reload() // Recarga la página
     }
     

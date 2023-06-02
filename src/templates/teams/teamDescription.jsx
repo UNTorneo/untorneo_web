@@ -28,10 +28,17 @@ const TeamDescription = () => {
         { field: 'email', headerName: 'Correo', width: 300}
       ];
     const handleClick = async() => {
+        const headers = {
+            'token': localStorage.getItem('authToken'),
+            'Content-Type': 'application/json',
+          };
         const response = await joinTeam({ variables: { 
-            teamId:id,
-            userId:localStorage.getItem('userId')
-        } });
+                teamId:id,
+                userId:localStorage.getItem('userId')
+            },context:{
+                headers: headers
+            }
+        });
         console.log('response',response);
         if(response.data.registerMember.error) setResponseError(response.data.registerMember.error);
         else setResponseError(response.data.registerMember.message);
