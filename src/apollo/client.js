@@ -4,6 +4,6 @@ import {
 } from "@apollo/client";
 
 export const client = new ApolloClient({
-  uri: "https://api-gateway-apollo-4yiv26znhq-uc.a.run.app",
+  uri: "http://35.184.159.116/4000",
   cache: new InMemoryCache(),
 });
