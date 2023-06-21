@@ -11,7 +11,7 @@ const Login = () => {
   const [loginError, setLoginError] = useState(null);
   const [login, { data, loading, error }] = useMutation(LOGIN);
   const navigate = useNavigate();
-
+  console.log('Listening to local');
   const handleEmailChange = (event) => {
     const email = event.target.value;
     setEmail(email);

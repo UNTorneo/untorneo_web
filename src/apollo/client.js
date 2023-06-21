@@ -4,6 +4,6 @@ import {
 } from "@apollo/client";
 
 export const client = new ApolloClient({
-  uri: "http://35.184.159.116/4000",
+  uri: "http://34.172.240.138:80",
   cache: new InMemoryCache(),
 });
